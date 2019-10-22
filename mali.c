@@ -7,8 +7,7 @@ int main()
    FILE *ponteiroArquivo;
   char arq[30];
 
-  printf("Opca
-         o escolhida: ");
+  printf("Opcao escolhida: ");
 
   scanf("%s", arq);
 
@@ -23,10 +22,45 @@ int main()
   printf("%i", tamanho);
 
   char vetor[tamanho];
-  int freq[tamanho];
-  int qtd = 0;
-  char c;
 
+  rewind(ponteiroArquivo);
+
+  char c = getc(ponteiroArquivo);
+  int ind = 0;
+  while(c != EOF)
+  {
+      printf("%c", c);
+      vetor[ind] = c;
+      ind++;
+      c = getc(ponteiroArquivo);
+  }
+  char i = 0;
+  char o = 0;
+
+
+  while(i<ind)
+  {
+      int qtd = 1;
+      while(o<ind)
+      {
+          if(vetor[i] == vetor[o])
+          qtd++;
+
+          o++;
+      }
+      //Fila *noArvore = new Fila();
+      //noArvore::caracter = vetor[i];
+      //noArvore::frequencia = qtd;
+      //noArvore ::vazio = false;
+      i++;
+  }
+
+
+
+  //int freq[tamanho];
+  //int qtd = 0;
+  //char c;
+/*
   rewind(ponteiroArquivo);
 
   do
@@ -85,7 +119,7 @@ int main()
 
 void criarNos(char vet[tamanho], int f[tamanho])
 {
-
+*/
 /*typedef struct HuffNode
 {
   char myChar;
