@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include "NoArvore.h"
 
 int tamanho;
 
@@ -48,6 +49,8 @@ int main()
 
           o++;
       }
+
+      NoArvore no
       //Fila *noArvore = new Fila();
       //noArvore::caracter = vetor[i];
       //noArvore::frequencia = qtd;

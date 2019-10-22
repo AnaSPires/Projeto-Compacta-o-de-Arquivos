@@ -1,14 +1,31 @@
+#include "NoArvore.h"
 #ifndef FILA
 #define FILA
 
-typedef struct NoArvore
+typedef struct NoLista
 {
-    char caracter;
-    bool vazio;
-    int frequencia;
-    struct NoArvore *esq, *dir;
-}NoArvore;
+    NoArvore info;
+    struct NoLista *prox;
+}NoLista;
 
-typedef struct create
+typedef struct NoLista * insira( struct NoLista* proximo, NoArvore no)
+{
+    if(no == NULL)
+        return NULL;
 
-#endif // FILA
+     struct NoLista* novo = (struct NoLista*)malloc(sizeof(struct NoLista));
+     novo -> info = no;
+
+    if(proximo == NULL)
+        novo -> prox = NULL;
+
+    else
+        novo -> prox = proximo;
+
+        return novo;
+
+}
+
+
+
+#endif
