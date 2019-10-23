@@ -4,11 +4,11 @@
 typedef struct NoArvore
 {
     char caracter;
-    bool vazio;
+    int vazio;
     int frequencia;
     struct NoArvore *esq, *dir;
 }NoArvore;
 
-typedef struct create
+extern NoArvore* create();
 
 #endif // FILA
