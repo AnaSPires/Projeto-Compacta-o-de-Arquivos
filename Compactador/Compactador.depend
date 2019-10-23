@@ -9,13 +9,13 @@
 
 1571835064 c:\users\u18201\documents\github\projeto-compactador-de-arquivos\noarvore.h
 
-1571832565 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\noarvore.c
+1571838690 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\noarvore.c
 	"Fila.h"
 	<stdlib.h>
 
 1571838278 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\compactador\fila.c
 
-1571846239 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\mali.c
+1571838690 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\mali.c
 	<stdio.h>
 	"NoArvore.h"
 	"Fila.h"
