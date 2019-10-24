@@ -28,26 +28,22 @@ NoFila * insira(NoFila* inicio, NoArvore* no)
 
 }
 
-NoFila* ordenar(NoFila* inicio)
+NoFila* ordenar(NoFila* des)
 {
-    if(inicio->prox == NULL)
-        return NULL;
+    if(des->prox == NULL)
+        return des;
 
-    if((inicio->info->frequencia)<=(inicio->prox->info->frequencia))
+    if((des->info->frequencia)<=(des->prox->info->frequencia))
     {
-        inicio->prox = ordenar(inicio->prox);
-        return inicio;
+        return des;
     }
-    else
-    {
-        NoFila* aux = inicio;  //m
-        inicio = inicio->prox; //e
-        aux->prox = inicio->prox; //m->a
-        inicio->prox = aux; //e ->m
-        inicio->prox = ordenar(inicio->prox); //m
 
-        return inicio;
-    }
+    NoFila* aux = des;
+    des = des->prox;
+    des->prox = aux;
+
+    ordenar(des->prox);
+    return des;
 }
 
 NoArvore* pop(NoFila** no)
@@ -59,7 +55,39 @@ NoArvore* pop(NoFila** no)
 
 NoFila* buscar(char caracter, NoFila* inicio)
 {
-    if(inicio == NULL || inicio ->prox == NULL)
+    if(inicio == NULL)
+     {
+         NoArvore* novo = create();
+         novo->caracter = caracter;
+         novo->frequencia = 1;
+         novo->vazio = 0;
+
+         return insira(inicio,novo);
+     }
+
+    if(inicio->info->caracter == caracter)
+    {
+        inicio->info->frequencia+=1;
+        return ordenar(inicio);
+    }
+
+    if(inicio->prox == NULL)
+    {
+         NoArvore* novo = create();
+         novo->caracter = caracter;
+         novo->frequencia = 1;
+         novo->vazio = 0;
+
+         return insira(inicio,novo);
+    }
+    inicio ->prox = buscar(caracter, inicio->prox);
+    return inicio;
+}
+
+/*
+NoFila* buscar(char caracter, NoFila* inicio)
+{
+    if(inicio == NULL || inicio->prox == NULL)
      {
          NoArvore* novo = create();
          novo->caracter = caracter;
@@ -81,8 +109,9 @@ NoFila* buscar(char caracter, NoFila* inicio)
         }
         inicio = inicio->prox;
     }
-    int fre = inicio->info->frequencia+1;
-    NoFila* outro = pop(&inicio);
-    outro->info->frequencia = fre;
-    return insira(inicio,outro);
+    inicio->info->frequencia+=1;
+    return ordenar(inicio);
 }
+
+
+*/

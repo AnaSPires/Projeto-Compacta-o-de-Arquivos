@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1571846099 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\fila.c
+1571931895 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\fila.c
 	<stdio.h>
 	"Fila.h"
 	"NoArvore.h"
@@ -15,7 +15,7 @@
 
 1571838278 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\compactador\fila.c
 
-1571838690 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\mali.c
+1571931973 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\mali.c
 	<stdio.h>
 	"NoArvore.h"
 	"Fila.h"
