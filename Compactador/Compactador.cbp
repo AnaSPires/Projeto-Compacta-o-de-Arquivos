@@ -31,15 +31,15 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="../Fila.c">
+		<Unit filename="Fila.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../Fila.h" />
-		<Unit filename="../NoArvore.c">
+		<Unit filename="Fila.h" />
+		<Unit filename="NoArvore.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../NoArvore.h" />
-		<Unit filename="../mali.c">
+		<Unit filename="NoArvore.h" />
+		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>

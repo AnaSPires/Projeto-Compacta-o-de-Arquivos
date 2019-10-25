@@ -1,22 +1,20 @@
 # depslib dependency file v1.0
-1571931895 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\fila.c
+1572011965 source:c:\users\u18173\desktop\compactador\fila.c
 	<stdio.h>
 	"Fila.h"
 	"NoArvore.h"
 
-1571839179 c:\users\u18201\documents\github\projeto-compactador-de-arquivos\fila.h
+1572002761 c:\users\u18173\desktop\compactador\fila.h
 	"NoArvore.h"
 
-1571835064 c:\users\u18201\documents\github\projeto-compactador-de-arquivos\noarvore.h
+1572002738 c:\users\u18173\desktop\compactador\noarvore.h
 
-1571838690 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\noarvore.c
+1572009171 source:c:\users\u18173\desktop\compactador\main.c
+	<stdio.h>
+	"NoArvore.h"
+	"Fila.h"
+
+1572002717 source:c:\users\u18173\desktop\compactador\noarvore.c
 	"Fila.h"
 	<stdlib.h>
-
-1571838278 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\compactador\fila.c
-
-1571931973 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\mali.c
-	<stdio.h>
-	"NoArvore.h"
-	"Fila.h"
 
