@@ -13,7 +13,7 @@ NoFila * insira(NoFila* inicio, NoArvore* no)
     }
 
     else
-        if(no->frequencia< (inicio-> info->frequencia) ||no->frequencia == (inicio-> info->frequencia))
+        if(no->frequencia <= (inicio-> info->frequencia))
         {
             NoFila* novo = (NoFila*)malloc(sizeof(NoFila));
             novo -> info = no;
@@ -84,6 +84,7 @@ NoFila* buscar(char caracter, NoFila* inicio)
     return inicio;
 }
 
+
 /*
 NoFila* buscar(char caracter, NoFila* inicio)
 {
@@ -115,3 +116,4 @@ NoFila* buscar(char caracter, NoFila* inicio)
 
 
 */
+

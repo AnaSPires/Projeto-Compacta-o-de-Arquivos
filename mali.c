@@ -30,7 +30,7 @@ int main()
   while(c != EOF)
     {
         printf("%c",c);
-        NoFila* atual = buscar(c,f);
+        NoFila* atual = buscar(c, f);
         printf("1");
         printf("\n\n");
         f=atual;
