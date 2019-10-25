@@ -18,3 +18,22 @@
 	"Fila.h"
 	<stdlib.h>
 
+1572019780 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\fila.c
+	<stdio.h>
+	"Fila.h"
+	"NoArvore.h"
+
+1572002761 c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\fila.h
+	"NoArvore.h"
+
+1572002738 c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\noarvore.h
+
+1572002717 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\noarvore.c
+	"Fila.h"
+	<stdlib.h>
+
+1572020402 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\main.c
+	<stdio.h>
+	"NoArvore.h"
+	"Fila.h"
+

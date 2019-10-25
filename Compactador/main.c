@@ -41,51 +41,58 @@ int main()
           {
               car = teste->info->caracter;
               fre = teste->info->frequencia;
-              //printf("%c",car);
-             // printf("%i", fre);
-             // printf("\n");
+            printf("%c",car);
+             printf("%i", fre);
+             printf("\n");
               teste = teste->prox;
               qtd++;
           }
               car = teste->info->caracter;
               fre = teste->info->frequencia;
-             // printf("%c",car);
-             // printf("%i", fre);
-             // printf("\n\n");
+             printf("%c",car);
+             printf("%i", fre);
+             printf("\n\n");
               qtd++;
 
 
-    while(qtd > 1)
+    while(qtd > 1 && f != NULL)
     {
         NoArvore* primeiro = pop(&f);
+        printf("\n\n");
         printf("%c",primeiro->caracter);
         printf("%i",primeiro->frequencia);
+
+        printf("\n\n");
 
         NoArvore *segundo = pop(&f);
         printf("%c",segundo->caracter);
         printf("%i",segundo->frequencia);
+        printf("\n\n");
 
 
         int frequencia = (primeiro->frequencia) + (segundo->frequencia);
         NoFila* novo = (NoFila*)malloc(sizeof(NoFila));
+        novo->info = create();
         novo->info->frequencia = frequencia;
         novo->info->vazio = 1;
 
-        printf("%i", novo->info->frequencia);
-        printf("\n");
-
-        NoFila*esq = (NoFila*) malloc(sizeof(NoFila));
+        NoFila* esq = (NoFila*)malloc(sizeof(NoFila));
         esq->info = primeiro;
-        printf("aeeeeeee");
 
-        NoFila*dir = (NoFila*) malloc(sizeof(NoFila));
+        NoFila* dir = (NoFila*) malloc(sizeof(NoFila));
         dir->info = segundo;
-        printf("aiiiiiiiiiiiii");
 
         novo->info->esq = esq;
         novo->info->dir = dir;
 
         f = insira(f,novo);
-        printf("aoooooooooo");
+
+        qtd--;
+
+        printf("%i", qtd);
+        printf("\n\n");
     }
+
+
+
   }

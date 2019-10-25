@@ -48,9 +48,11 @@ NoFila* ordenar(NoFila* des)
 
 NoArvore* pop(NoFila** no)
 {
-   NoArvore* ret = (*no)->info;
-   *no = (*no)->prox;
-   return ret;
+    if(no!= NULL){
+       NoArvore* ret = (*no)->info;
+       *no = (*no)->prox;
+       return ret;
+    }
 }
 
 NoFila* existe(char caracter, NoFila* inicio)
