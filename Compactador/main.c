@@ -62,8 +62,8 @@ int main()
         printf("%i",primeiro->frequencia);
 
         NoArvore *segundo = pop(&f);
-        printf("%c",segundo->caracter);
-        printf("%i",segundo->frequencia);
+        //printf("%c",segundo->caracter);
+        //printf("%i",segundo->frequencia);
 
 
         int frequencia = (primeiro->frequencia) + (segundo->frequencia);
@@ -71,21 +71,21 @@ int main()
         novo->info->frequencia = frequencia;
         novo->info->vazio = 1;
 
-        printf("%i", novo->info->frequencia);
-        printf("\n");
+        //printf("%i", novo->info->frequencia);
+        //printf("\n");
 
         NoFila*esq = (NoFila*) malloc(sizeof(NoFila));
         esq->info = primeiro;
-        printf("aeeeeeee");
 
         NoFila*dir = (NoFila*) malloc(sizeof(NoFila));
         dir->info = segundo;
-        printf("aiiiiiiiiiiiii");
 
         novo->info->esq = esq;
         novo->info->dir = dir;
 
         f = insira(f,novo);
-        printf("aoooooooooo");
     }
+    NoFila* filaLet = (*NoFila)malloc(sizeof(NoFila));
+    int cod;
+    while()
   }

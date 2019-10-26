@@ -35,6 +35,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Fila.h" />
+		<Unit filename="Letra.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Letra.h" />
 		<Unit filename="NoArvore.c">
 			<Option compilerVar="CC" />
 		</Unit>
