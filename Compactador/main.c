@@ -90,34 +90,39 @@ int main()
     //int cod;
     //while()
 
-    NoFila* aux = create();
-    NoArvore* auxArvore = (NoArvore*)malloc(sizeof(NoArvore));
-    char cod[qtdCaractere]; //declarar dinamicamente
+    NoArvore* auxArvore2 = create();
+    NoArvore* auxArvore = create();
+    char *cod = (char *) malloc(qtdCaractere); //declarar dinamicamente
+
     int pos = 0;
     int qtdCriados = 0;
 
     while(qtdCriados != qtdCaractere)
     {
-        while(aux->info->esq != NULL && aux->info->dir != NULL)
+        while(auxArvore->esq != NULL && auxArvore->dir != NULL)
         {
-            aux = aux->prox;
+            auxArvore2 = auxArvore;
+            auxArvore = auxArvore->esq;
 
-            printf("%c", aux->info->caracter);
+            printf("%c", auxArvore->caracter);
 
-            if(aux->info->esq == NULL)
+            if(auxArvore->esq == NULL)
             {
                 cod[pos++] = "0";
             }
 
-            if(aux->info->dir == NULL)
+            if(auxArvore->dir == NULL)
             {
                 cod[pos++] = "1";
             }
         }
 
         Letra* letra = create();
-        letra->caracter = aux->info->caracter;
+        letra->caracter = auxArvore->caracter;
         letra->codigo = cod;
+
+        cod[qtd--] = NULL;
+        auxArvore = auxArvore2->dir;
 
         qtdCriados++;
     }
