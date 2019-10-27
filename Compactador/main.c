@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include "NoArvore.h"
 #include "Fila.h"
+#include "Letra.h"
 
 int tamanho;
 
@@ -54,6 +55,8 @@ int main()
    // printf("\n\n");
    qtd++;
 
+   int qtdCaractere = qtd;
+
    while(qtd > 1)
    {
       NoArvore* primeiro = pop(&f);
@@ -64,12 +67,10 @@ int main()
       //printf("%c",segundo->caracter);
       //printf("%i",segundo->frequencia);
 
-
         int frequencia = (primeiro->frequencia) + (segundo->frequencia);
         NoFila* novo = (NoFila*)malloc(sizeof(NoFila));
         novo->info->frequencia = frequencia;
         novo->info->vazio = 1;
-
 
         //printf("%i", novo->info->frequencia);
         //printf("\n");
@@ -89,32 +90,39 @@ int main()
     //int cod;
     //while()
 
-    NoFila* aux = (NoFila*)malloc(sizeof(Nofila));
+    NoFila* aux = create();
     NoArvore* auxArvore = (NoArvore*)malloc(sizeof(NoArvore));
-    int cod[8]; //declarar dinamicamente
+    char cod[qtdCaractere]; //declarar dinamicamente
     int pos = 0;
+    int qtdCriados = 0;
 
-    while(aux->info->esq != NULL && aux->info->dir != NULL)
+    while(qtdCriados != qtdCaractere)
     {
-        aux = aux->prox;
-
-        printf("%c", aux->info->caracter);
-
-        if(aux->info->esq == NULL)
+        while(aux->info->esq != NULL && aux->info->dir != NULL)
         {
-            cod[pos++] = "0";
+            aux = aux->prox;
 
+            printf("%c", aux->info->caracter);
+
+            if(aux->info->esq == NULL)
+            {
+                cod[pos++] = "0";
+            }
+
+            if(aux->info->dir == NULL)
+            {
+                cod[pos++] = "1";
+            }
         }
 
-        if(aux->info->dir == NULL)
-        {
-            cod[pos++] = "1";
+        Letra* letra = create();
+        letra->caracter = aux->info->caracter;
+        letra->codigo = cod;
 
-        }
+        qtdCriados++;
     }
 
-    Letra* letra = create();
-    letra->caracter = aux->caracter;
+
 
 
 
