@@ -14,7 +14,7 @@ NoFila * insira(NoFila* inicio, NoArvore* no)
 
     if(no->frequencia <= (inicio-> info->frequencia))
     {
-        NoFila* novo = (NoFila*)malloc(sizeof(NoFila));
+        NoFila* novo = create();
         novo -> info = no;
         novo -> prox = inicio;
 
@@ -42,7 +42,7 @@ NoFila* ordenar(NoFila* des)
         des->prox = aux;
     }
 
-    des->prox = ordenar(des->prox);//r.prox =
+    des->prox = ordenar(des->prox);
     return des;
 }
 

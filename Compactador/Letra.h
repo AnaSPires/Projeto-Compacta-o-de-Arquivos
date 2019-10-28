@@ -9,5 +9,5 @@ typedef struct Letra
 
 extern Letra* create();
 
-#endif // FILA
+#endif
 

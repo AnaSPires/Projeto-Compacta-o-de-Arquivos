@@ -92,7 +92,7 @@ int main()
 
     NoArvore* auxArvore2 = create();
     NoArvore* auxArvore = create();
-    char *cod = (char *) malloc(qtdCaractere); //declarar dinamicamente
+    char *cod = (char *) malloc(qtdCaractere);
 
     int pos = 0;
     int qtdCriados = 0;
@@ -121,14 +121,17 @@ int main()
         letra->caracter = auxArvore->caracter;
         letra->codigo = cod;
 
+        criarTabela(auxArvore, qtd, letra);
+
         cod[qtd--] = NULL;
         auxArvore = auxArvore2->dir;
 
         qtdCriados++;
     }
+  }
 
-
-
+  void criarTabela(NoArvore* no, int topo, Letra* l)
+  {
 
 
   }
