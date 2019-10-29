@@ -100,7 +100,7 @@ int main()
     //NoFila* filaLet = (NoFila*)malloc(sizeof(NoFila));
     //int cod;
     //while()
-
+    ////////////////////////
     NoArvore* auxArvore2 = create();
     NoArvore* auxArvore = create();
     char *cod = (char *) malloc(qtdCaractere);
