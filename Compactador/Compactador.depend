@@ -18,12 +18,21 @@
 	"Fila.h"
 	<stdlib.h>
 
-1572019780 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\fila.c
+1572266931 D
+
+1572347837 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\fila.c
 	<stdio.h>
 	"Fila.h"
 	"NoArvore.h"
 
-1572002761 c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\fila.h
+1572266931 source:c:\users\ariane\documents\github\projeto-compactador-de-arquivos\compactador\fila.c
+
+1572266710 e9a6524b0d05d9d230c7cc7664b79cef2a022
+	<stdio.h>
+	"Fila.h"
+	"NoArvore.h"
+
+1572347836 c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\fila.h
 	"NoArvore.h"
 
 1572002738 c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\noarvore.h
@@ -32,8 +41,32 @@
 	"Fila.h"
 	<stdlib.h>
 
-1572020402 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\main.c
+1572348202 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\main.c
 	<stdio.h>
 	"NoArvore.h"
 	"Fila.h"
+	"Letra.h"
+
+1572020402 h"
+
+1572199301 c:\users\ariane\documents\github\projeto-compactador-de-arquivos\compactador\fila.h
+	"NoArvore.h"
+
+1572041321 c:\users\ariane\documents\github\projeto-compactador-de-arquivos\compactador\noarvore.h
+
+1571877718 source:c:\users\ariane\documents\github\projeto-compactador-de-arquivos\compactador\noarvore.c
+	"Fila.h"
+	<stdlib.h>
+
+1572208424 source:c:\users\ariane\documents\github\projeto-compactador-de-arquivos\compactador\letra.c
+	<stdio.h>
+	"Letra.h"
+
+1572266710 c:\users\ariane\documents\github\projeto-compactador-de-arquivos\compactador\letra.h
+
+1572348160 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\letra.c
+	<stdio.h>
+	"Letra.h"
+
+1572348160 c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\letra.h
 

@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include "NoArvore.h"
 #include "Fila.h"
+#include "Letra.h"
 
 int tamanho;
 
@@ -54,21 +55,20 @@ int main()
              printf("\n\n");
               qtd++;
 
-
-    while(qtd > 1 && f != NULL)
+    int qtdCaractere = qtd;
+    while(qtdCaractere > 1 && f != NULL)
     {
         NoArvore* primeiro = pop(&f);
-        printf("\n\n");
-        printf("%c",primeiro->caracter);
-        printf("%i",primeiro->frequencia);
+        //printf("\n\n");
+        //printf("%c",primeiro->caracter);
+        //printf("%i",primeiro->frequencia);
 
-        printf("\n\n");
+        //printf("\n\n");
 
         NoArvore *segundo = pop(&f);
-        printf("%c",segundo->caracter);
-        printf("%i",segundo->frequencia);
-        printf("\n\n");
-
+        //printf("%c",segundo->caracter);
+        //printf("%i",segundo->frequencia);
+        //printf("\n\n");
 
         int frequencia = (primeiro->frequencia) + (segundo->frequencia);
         NoFila* novo = (NoFila*)malloc(sizeof(NoFila));
@@ -77,6 +77,10 @@ int main()
         novo->info->vazio = 1;
 
         NoFila* esq = (NoFila*)malloc(sizeof(NoFila));
+
+        //printf("%i", novo->info->frequencia);
+        //printf("\n");
+
         esq->info = primeiro;
 
         NoFila* dir = (NoFila*) malloc(sizeof(NoFila));
@@ -87,12 +91,58 @@ int main()
 
         f = insira(f,novo);
 
-        qtd--;
+        qtdCaractere--;
 
-        printf("%i", qtd);
+        printf("%i", qtdCaractere);
         printf("\n\n");
     }
 
+    //NoFila* filaLet = (NoFila*)malloc(sizeof(NoFila));
+    //int cod;
+    //while()
+
+    NoArvore* auxArvore2 = create();
+    NoArvore* auxArvore = create();
+    char *cod = (char *) malloc(qtdCaractere);
+
+    int pos = 0;
+    int qtdCriados = 0;
+
+    while(qtdCriados != qtd)
+    {
+        while(auxArvore->esq != NULL && auxArvore->dir != NULL)
+        {
+            auxArvore2 = auxArvore;
+            auxArvore = auxArvore->esq;
+
+            printf("%c", auxArvore->caracter);
+
+            if(auxArvore->esq == NULL)
+            {
+                cod[pos++] = "0";
+            }
+
+            if(auxArvore->dir == NULL)
+            {
+                cod[pos++] = "1";
+            }
+        }
+
+        Letra* letra = create();
+        letra->caracter = auxArvore->caracter;
+        letra->codigo = cod;
+
+        criarTabela(auxArvore, qtd, letra);
+
+        cod[qtd--] = NULL;
+        auxArvore = auxArvore2->dir;
+
+        qtdCriados++;
+    }
+  }
+
+  void criarTabela(NoArvore* no, int topo, Letra* l)
+  {
 
 
   }

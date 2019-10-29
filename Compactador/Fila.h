@@ -11,7 +11,9 @@ typedef struct NoFila
 
 extern NoFila* insira(NoFila* inicio, NoArvore* no);
 extern NoArvore* pop(NoFila** no);
-
+extern NoFila* ordenar(NoFila* des);
+extern NoFila* existe(char caracter, NoFila* inicio);
+extern NoFila* buscar(char caracter, NoFila* inicio);
 
 
 #endif

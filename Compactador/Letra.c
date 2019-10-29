@@ -1,7 +1,6 @@
 #include<stdio.h>
+#include "Letra.h"
 
-Letra* create()
-{
-    Letra* l = (NoArvore*)malloc(sizeof(NoArvore));
-    return l;
+Letra* createL(){
+    return (Letra*)malloc(sizeof(Letra));
 }
