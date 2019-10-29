@@ -34,26 +34,26 @@ int main()
         c = getc(ponteiroArquivo);
       }
 
-       char car;
-         int fre;
+   char car;
+   int fre;
 
-          NoFila* teste = f;
-          while(teste->prox !=NULL)
-          {
-              car = teste->info->caracter;
-              fre = teste->info->frequencia;
-            printf("%c",car);
-             printf("%i", fre);
-             printf("\n");
-              teste = teste->prox;
-              qtd++;
-          }
-              car = teste->info->caracter;
-              fre = teste->info->frequencia;
-             printf("%c",car);
-             printf("%i", fre);
-             printf("\n\n");
-              qtd++;
+  NoFila* teste = f;
+  while(teste->prox !=NULL)
+  {
+      car = teste->info->caracter;
+      fre = teste->info->frequencia;
+      printf("%c",car);
+      printf("%i", fre);
+      printf("\n");
+      teste = teste->prox;
+      qtd++;
+  }
+      car = teste->info->caracter;
+      fre = teste->info->frequencia;
+      printf("%c",car);
+      printf("%i", fre);
+      printf("\n\n");
+      qtd++;
 
     int qtdCaractere = qtd;
     while(qtdCaractere > 1 && f != NULL)
@@ -93,8 +93,8 @@ int main()
 
         qtdCaractere--;
 
-        printf("%i", qtdCaractere);
-        printf("\n\n");
+       // printf("%i", qtdCaractere);
+       // printf("\n\n");
     }
 
     //NoFila* filaLet = (NoFila*)malloc(sizeof(NoFila));
@@ -103,34 +103,38 @@ int main()
     ////////////////////////
     NoArvore* auxArvore2 = create();
     NoArvore* auxArvore = create();
-    char *cod = (char *) malloc(qtdCaractere);
-
+    char cod[sizeof(char)];
     int pos = 0;
     int qtdCriados = 0;
 
+
+
     while(qtdCriados != qtd)
     {
+        auxArvore = f->info;
         while(auxArvore->esq != NULL && auxArvore->dir != NULL)
         {
+
             auxArvore2 = auxArvore;
-            auxArvore = auxArvore->esq;
+            auxArvore = f->prox;
 
-            printf("%c", auxArvore->caracter);
+            printf("%i", auxArvore->frequencia);
 
-            if(auxArvore->esq == NULL)
+            if(auxArvore->esq != NULL)
             {
                 cod[pos++] = "0";
+                printf("aiai");
             }
-
-            if(auxArvore->dir == NULL)
-            {
-                cod[pos++] = "1";
-            }
+            else
+                if(auxArvore->dir != NULL)
+                {
+                    cod[pos++] = "1";
+                }
         }
 
         Letra* letra = create();
         letra->caracter = auxArvore->caracter;
-        letra->codigo = cod;
+        letra->codigo = &cod;
 
         criarTabela(auxArvore, qtd, letra);
 

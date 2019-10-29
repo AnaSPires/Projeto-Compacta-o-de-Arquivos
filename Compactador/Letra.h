@@ -3,7 +3,6 @@
 typedef struct Letra
 {
     char caracter;
-    //int codigo;
     char *codigo;
 }Letra;
 
