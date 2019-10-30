@@ -10,5 +10,6 @@ typedef struct NoArvore
 }NoArvore;
 
 extern NoArvore* create();
+extern int altura(NoArvore* noAtual);
 
 #endif // FILA

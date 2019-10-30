@@ -3,7 +3,8 @@
 typedef struct Letra
 {
     char caracter;
-    char *codigo;
+    char*codigo;
+    struct Letra* letra;
 }Letra;
 
 extern Letra* createL();

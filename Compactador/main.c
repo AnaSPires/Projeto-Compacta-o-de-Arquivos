@@ -77,10 +77,6 @@ int main()
         novo->info->vazio = 1;
 
         NoFila* esq = (NoFila*)malloc(sizeof(NoFila));
-
-        //printf("%i", novo->info->frequencia);
-        //printf("\n");
-
         esq->info = primeiro;
 
         NoFila* dir = (NoFila*) malloc(sizeof(NoFila));
@@ -97,40 +93,20 @@ int main()
        // printf("\n\n");
     }
 
-    //NoFila* filaLet = (NoFila*)malloc(sizeof(NoFila));
-    //int cod;
-    //while()
+    /*
+    int a = altura(f->info);
+    printf("aaaaaaaaaaa");
+    printf("%i",a);
+    */
+
     ////////////////////////
+
     NoArvore* auxArvore2 = create();
     NoArvore* auxArvore = create();
     char cod[sizeof(char)];
     int pos = 0;
-    int qtdCriados = 0;
 
 
-
-    while(qtdCriados != qtd)
-    {
-        auxArvore = f->info;
-        while(auxArvore->esq != NULL && auxArvore->dir != NULL)
-        {
-
-            auxArvore2 = auxArvore;
-            auxArvore = f->prox;
-
-            printf("%i", auxArvore->frequencia);
-
-            if(auxArvore->esq != NULL)
-            {
-                cod[pos++] = "0";
-                printf("aiai");
-            }
-            else
-                if(auxArvore->dir != NULL)
-                {
-                    cod[pos++] = "1";
-                }
-        }
 
         Letra* letra = create();
         letra->caracter = auxArvore->caracter;
@@ -143,7 +119,7 @@ int main()
 
         qtdCriados++;
     }
-  }
+
 
   void criarTabela(NoArvore* no, int topo, Letra* l)
   {
