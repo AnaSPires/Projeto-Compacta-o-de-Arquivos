@@ -1,13 +1,22 @@
 #ifndef LETRA
 #define LETRA
-typedef struct Letra
+typedef struct NoLetra
 {
     char caracter;
+    int frequencia;
     char*codigo;
-    struct Letra* letra;
-}Letra;
+    struct NoLetra* prox;
+}NoLetra;
 
-extern Letra* createL();
+extern NoLetra* createL();
 
 #endif
 
+/*
+vetior de codigos - letra, freq e codigo vetor de char (altura)
+
+if(NoArvore atual, char[] codigo, int auxQtd)
+{
+  [0][][][][]
+}
+*/

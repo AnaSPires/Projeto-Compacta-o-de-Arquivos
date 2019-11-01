@@ -10,29 +10,32 @@ NoArvore* create()
     return no;
 }
 
-Letra* createCod(NoArvore* atual, char codigo[], int tam)
+void createCod(NoLetra lista,NoArvore* atual, char codigo[], int tam)
 {
-    if(auxArvore->esq != NULL)
+    if(atual != NULL)
     {
-        codigo[tam++] = "0";
-        return createCod(atual->esq, codigo,tam);
-    }
-    else
+        if(atual->esq != NULL)
+        {
+            codigo[tam] = "0";
+            createCod(atual->esq, codigo,tam + 1);
+        }
+
+        if(atual->esq == NULL && atual->dir == NULL)
+        {
+            NoLetra* no = (NoLetra*)malloc(sizeof(NoLetra));
+            no->caracter = atual->caracter;
+            no->codigo = &codigo;
+            no->frequencia = atual->frequencia;
+        }
+
         if(auxArvore->dir != NULL)
         {
-            cod[tam++] = "1";
-            return createCod(atual->dir,codigo,tam);
+            cod[tam] = "1";
+            createCod(atual->dir,codigo,tam + 1);
         }
-        else{
-            Letra* letra = (Letra*)malloc(sizeof(Letra));
-            letra->caracter = atual->caracter;
-            letra->codigo = &codigo;
-            letra
-        }
-
-
+    }
 }
-/*
+
 int altura(NoArvore* noAtual)
 {
     int hEsq, hDir;
@@ -48,4 +51,4 @@ int altura(NoArvore* noAtual)
 
     return 1 + hDir;
 }
-*/
+

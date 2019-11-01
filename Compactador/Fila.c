@@ -88,7 +88,6 @@ NoFila* buscar(char caracter, NoFila* inicio)
          NoArvore* novo = create();
          novo->caracter = caracter;
          novo->frequencia = 1;
-         novo->vazio = 0;
 
          return insira(inicio,novo);
      }
@@ -99,38 +98,4 @@ NoFila* buscar(char caracter, NoFila* inicio)
 
 
 
-/*NoFila* buscar(char caracter, NoFila* inicio)
-{
-     NoArvore* novo = create();
-     novo->caracter = caracter;
-     novo->frequencia = 1;
-     novo->vazio = 0;
 
-
-    if(inicio == NULL)
-     {
-
-         return insira(inicio,novo);
-     }
-
-    if(inicio->info->caracter == caracter)
-    {
-        inicio->info->frequencia+=1;
-        return ordenar(inicio);
-    }
-
-    if(inicio->info->frequencia <= novo->frequencia)
-        return insira(inicio,novo);
-    else
-    {
-        NoFila* noFila = (NoFila*)malloc(sizeof(NoFila));
-        noFila -> info = novo;
-
-        noFila -> prox = inicio;
-
-        return noFila;
-    }
-
-    inicio ->prox = buscar(caracter, inicio->prox);
-    return inicio;
-}*/
