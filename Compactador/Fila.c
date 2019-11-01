@@ -94,8 +94,3 @@ NoFila* buscar(char caracter, NoFila* inicio)
 
      return ordenar(inicio);
 }
-
-
-
-
-

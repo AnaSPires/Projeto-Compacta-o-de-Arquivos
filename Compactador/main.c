@@ -42,17 +42,17 @@ int main()
   {
       car = teste->info->caracter;
       fre = teste->info->frequencia;
-      printf("%c",car);
-      printf("%i", fre);
-      printf("\n");
+      //printf("%c",car);
+      //printf("%i", fre);
+      //printf("\n");
       teste = teste->prox;
       qtd++;
   }
       car = teste->info->caracter;
       fre = teste->info->frequencia;
-      printf("%c",car);
-      printf("%i", fre);
-      printf("\n\n");
+      //printf("%c",car);
+      //printf("%i", fre);
+      //printf("\n\n");
       qtd++;
 
     int qtdCaractere = qtd;
@@ -85,9 +85,24 @@ int main()
        // printf("%i", qtdCaractere);
        // printf("\n\n");
     }
-
+    //printf("%i", f->info->frequencia);
 
     int a = altura(f->info);
     printf("%i",a);
-    NoLetra* filaL = (NoFila*)malloc(sizeof(NoLetra));
+
+    NoLetra* filaL = (NoLetra*)malloc(sizeof(NoLetra));
+
+    filaL = createCod(filaL, f->info);
+    printf("bbbbbbbbbb");
+    NoLetra* testeL = filaL;
+    while(testeL->prox !=NULL)
+    {
+      printf("%c", filaL->caracter);
+      printf("%i", filaL->frequencia);
+      printf("\n");
+      testeL = testeL->prox;
+    }
+       printf("%c", filaL->caracter);
+      printf("%i", filaL->frequencia);
+      printf("\n\n");
     }

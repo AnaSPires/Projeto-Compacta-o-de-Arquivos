@@ -1,3 +1,4 @@
+#include "NoArvore.h"
 #ifndef LETRA
 #define LETRA
 typedef struct NoLetra
@@ -9,6 +10,7 @@ typedef struct NoLetra
 }NoLetra;
 
 extern NoLetra* createL();
+extern NoLetra* add(NoLetra* inicio, NoLetra* no);
 
 #endif
 
