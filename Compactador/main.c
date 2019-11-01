@@ -81,28 +81,50 @@ int main()
         f = insira(f,novo);
 
         qtdCaractere--;
-
-       // printf("%i", qtdCaractere);
-       // printf("\n\n");
     }
-    //printf("%i", f->info->frequencia);
 
-    int a = altura(f->info);
-    printf("%i",a);
+        int a = altura(f->info);
+        printf("%i",a);
 
-    NoLetra* filaL = (NoLetra*)malloc(sizeof(NoLetra));
+        NoLetra* filaL =NULL;
 
-    filaL = createCod(filaL, f->info);
-    printf("bbbbbbbbbb");
-    NoLetra* testeL = filaL;
-    while(testeL->prox !=NULL)
-    {
-      printf("%c", filaL->caracter);
-      printf("%i", filaL->frequencia);
-      printf("\n");
-      testeL = testeL->prox;
-    }
-       printf("%c", filaL->caracter);
-      printf("%i", filaL->frequencia);
-      printf("\n\n");
-    }
+        char *auxCod = (char*)malloc(a * sizeof(char));
+        int i;
+        for(i = 0; i < a; i++)
+            auxCod[i] = NULL;
+        int auxTam = 0;
+        filaL = createCod(filaL, f->info, auxCod, auxTam, a);
+        NoLetra* testeL = filaL;
+
+        while(testeL->prox !=NULL)
+        {
+          printf("%c\n", testeL->caracter);
+          printf("%i\n", testeL->frequencia);
+          testeL = testeL->prox;
+          int p;
+          for(p = 0; p<testeL->tam;p++)
+        {
+            printf("%c", testeL->codigo[p]);
+            printf("-");
+        }
+        printf("\n\n");
+        }
+        printf("%c", testeL->caracter);
+        printf("\n");
+        printf("%i", testeL->frequencia);
+        printf("\n");
+        int p;
+        for(p = 0; p<testeL->tam;p++)
+        {
+            printf("%c", testeL->codigo[p]);
+            printf("-");
+        }
+
+        //arquivo
+        FILE *arqCompactado = fopen(arq, "r");
+        arq = arq + "compactado";
+
+
+
+}
+

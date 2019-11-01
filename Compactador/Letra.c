@@ -2,7 +2,8 @@
 #include "Letra.h"
 
 NoLetra* createL(){
-    return (NoLetra*)malloc(sizeof(NoLetra));
+    NoLetra *no = (NoLetra*)malloc(sizeof(NoLetra));
+    no->prox = NULL;
 }
 
 NoLetra* add(NoLetra* inicio, NoLetra* no)

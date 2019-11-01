@@ -5,8 +5,9 @@ typedef struct NoLetra
 {
     char caracter;
     int frequencia;
-    char*codigo;
+    char *codigo;
     struct NoLetra* prox;
+    int tam;
 }NoLetra;
 
 extern NoLetra* createL();

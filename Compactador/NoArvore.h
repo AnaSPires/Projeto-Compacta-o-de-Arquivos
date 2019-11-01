@@ -8,6 +8,7 @@ typedef struct NoArvore
     struct NoArvore *esq, *dir;
 }NoArvore;
 
+
 extern NoArvore* create();
 extern int altura(NoArvore* noAtual);
 

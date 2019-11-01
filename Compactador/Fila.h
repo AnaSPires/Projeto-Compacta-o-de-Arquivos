@@ -9,6 +9,7 @@ typedef struct NoFila
 }NoFila;
 
 
+
 extern NoFila* insira(NoFila* inicio, NoArvore* no);
 extern NoArvore* pop(NoFila** no);
 extern NoFila* ordenar(NoFila* des);
