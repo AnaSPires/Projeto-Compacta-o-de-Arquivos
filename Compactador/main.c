@@ -92,27 +92,30 @@ int main()
         int i;
         for(i = 0; i < a; i++)
             auxCod[i] = NULL;
+
         int auxTam = 0;
+
         filaL = createCod(filaL, f->info, auxCod, auxTam, a);
         NoLetra* testeL = filaL;
 
         while(testeL->prox !=NULL)
         {
-          printf("%c\n", testeL->caracter);
-          printf("%i\n", testeL->frequencia);
-          testeL = testeL->prox;
-          int p;
-          for(p = 0; p<testeL->tam;p++)
-        {
-            printf("%c", testeL->codigo[p]);
-            printf("-");
-        }
-        printf("\n\n");
+            printf("%c\n", testeL->caracter);
+            printf("%i\n", testeL->frequencia);
+            testeL = testeL->prox;
+            int p;
+            for(p = 0; p<testeL->tam;p++)
+            {
+                printf("%c", testeL->codigo[p]);
+                printf("-");
+            }
+            printf("\n\n");
         }
         printf("%c", testeL->caracter);
         printf("\n");
         printf("%i", testeL->frequencia);
         printf("\n");
+
         int p;
         for(p = 0; p<testeL->tam;p++)
         {
@@ -121,6 +124,9 @@ int main()
         }
 
         //arquivo
+
+        rewind(ponteiroArquivo);
+
         FILE *arqCompactado = fopen(arq, "r");
         arq = arq + "compactado";
 
