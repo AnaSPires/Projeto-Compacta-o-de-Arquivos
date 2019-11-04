@@ -93,27 +93,30 @@ int main()
         int i;
         for(i = 0; i < a; i++)
             auxCod[i] = NULL;
+
         int auxTam = 0;
+
         filaL = createCod(filaL, f->info, auxCod, auxTam, a);
         NoLetra* testeL = filaL;
 
         while(testeL->prox !=NULL)
         {
-          printf("%c\n", testeL->caracter);
-          printf("%i\n", testeL->frequencia);
-          testeL = testeL->prox;
-          int p;
-          for(p = 0; p<testeL->tam;p++)
-        {
-            printf("%c", testeL->codigo[p]);
-            printf("-");
-        }
-        printf("\n\n");
+            printf("%c\n", testeL->caracter);
+            printf("%i\n", testeL->frequencia);
+            testeL = testeL->prox;
+            int p;
+            for(p = 0; p<testeL->tam;p++)
+            {
+                printf("%c", testeL->codigo[p]);
+                printf("-");
+            }
+            printf("\n\n");
         }
         printf("%c", testeL->caracter);
         printf("\n");
         printf("%i", testeL->frequencia);
         printf("\n");
+
         int p;
         for(p = 0; p<testeL->tam;p++)
         {
@@ -126,6 +129,17 @@ int main()
 
 
 
+        rewind(ponteiroArquivo);
+        char arqCodificado[30];
+        FILE *pontCodificado = fopen(arqCodificado, "w");
+
+        char letra = getc(ponteiroArquivo);
+        while(letra != EOF)
+        {
+            fprintf(arqCodificado, filaL->caracter);
+            filaL = filaL->prox;
+            letra = getc(ponteiroArquivo);
+        }
 
 
 }
