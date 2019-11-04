@@ -9,7 +9,7 @@ int main()
 {
    FILE *ponteiroArquivo;
    NoFila* f = NULL;
-  char arq[30];
+  char *arq = (char*)malloc(sizeof(char));
 
   printf("Opcao escolhida: ");
 
@@ -127,23 +127,34 @@ int main()
         //arq = arq + ".compactado";
         //FILE *arqCompactado = fopen(arq, "r");
 
-        char arqCodificado[30] = "compactado";
 
-        FILE *pontCodificado = fopen(arqCodificado, "w");
+        char * found = strstr( arq, "in" );
+        char* arqCompactado;
+        if (found != NULL)
+        {
+          int index = found - arq;
+          for(int i = 0;i<index;i++)
+          {
+            *arqCompactado = *arq;
+            arq++;
+            arqCompactado++;
+          }
 
 
-        rewind(ponteiroArquivo);
-        char letra = getc(ponteiroArquivo);
+        FILE *pontCompactado = freopen(arq, "w", arqCompactado);
 
+        fprintf(pontCompactado,"%s", "aaaaaaaaaaaaaa"); //filaL->caracter
+        /*
         while(letra != EOF)
         {
-            fprintf(arqCodificado, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"); //filaL->caracter
+            fprintf(arqCodificado, "aaaaaaaaaaaaaa"); //filaL->caracter
             printf("humf");
             filaL = filaL->prox;
             letra = getc(ponteiroArquivo);
             printf("yyyyy");
         }
-        printf("aaaa");
+        printf("aaaa");*/
+        }
 
 }
 
