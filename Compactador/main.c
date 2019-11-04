@@ -16,6 +16,7 @@ int main()
   scanf("%s", arq);
 
   ponteiroArquivo = fopen(arq, "r");
+  printf("%s",arq);
 
   if(ponteiroArquivo == NULL)
      printf("Erro na abertura do arquivo!");
@@ -120,9 +121,10 @@ int main()
             printf("-");
         }
 
-        //arquivo
+        arq = arq+".compactado";
         FILE *arqCompactado = fopen(arq, "r");
-        arq = arq + "compactado";
+
+
 
 
 
