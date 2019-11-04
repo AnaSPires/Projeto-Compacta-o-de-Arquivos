@@ -16,7 +16,7 @@ int main()
   scanf("%s", arq);
 
   ponteiroArquivo = fopen(arq, "r");
-  printf("%s",arq);
+  //printf("%s",arq);
 
   if(ponteiroArquivo == NULL)
      printf("Erro na abertura do arquivo!");
@@ -124,23 +124,26 @@ int main()
             printf("-");
         }
 
-        arq = arq+".compactado";
-        FILE *arqCompactado = fopen(arq, "r");
+        //arq = arq + ".compactado";
+        //FILE *arqCompactado = fopen(arq, "r");
 
+        char arqCodificado[30] = "compactado";
+
+        FILE *pontCodificado = fopen(arqCodificado, "w");
 
 
         rewind(ponteiroArquivo);
-        char arqCodificado[30];
-        FILE *pontCodificado = fopen(arqCodificado, "w");
-
         char letra = getc(ponteiroArquivo);
+
         while(letra != EOF)
         {
-            fprintf(arqCodificado, filaL->caracter);
+            fprintf(arqCodificado, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"); //filaL->caracter
+            printf("humf");
             filaL = filaL->prox;
             letra = getc(ponteiroArquivo);
+            printf("yyyyy");
         }
-
+        printf("aaaa");
 
 }
 
