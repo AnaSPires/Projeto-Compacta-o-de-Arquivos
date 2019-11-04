@@ -127,17 +127,24 @@ int main()
         //arq = arq + ".compactado";
         //FILE *arqCompactado = fopen(arq, "r");
 
-        char arqCodificado[30] = "compactado";
+        char arqCodificado[30] = "compactado.aa";
 
-        FILE *pontCodificado = fopen(arqCodificado, "w");
-
+        FILE *pontCodificado = fopen(arqCodificado, "wb");
 
         rewind(ponteiroArquivo);
         char letra = getc(ponteiroArquivo);
 
-        while(letra != EOF)
+        int qtdLixo = 0;
+
+        fwrite(&qtdLixo, sizeof(int), 1, pontCodificado);
+
+        while(letra != EOF && filaL != NULL)
         {
-            fprintf(arqCodificado, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"); //filaL->caracter
+            acharLetra(letra);
+            int aux=0;
+            aux = aux | (1u << (7 - 1));//1=pos
+
+            fprintf(pontCodificado, "o aux é %d", aux); //filaL->caracter
             printf("humf");
             filaL = filaL->prox;
             letra = getc(ponteiroArquivo);
