@@ -125,11 +125,22 @@ int main()
 
         //arquivo
 
-        rewind(ponteiroArquivo);
-
+        //ACHO Q PODIA CRIAR UM METODO PRA TUDO ISSO
         FILE *arqCompactado = fopen(arq, "r");
-        arq = arq + "compactado";
+//        arq = arq + "compactado";
 
+
+        rewind(ponteiroArquivo);
+        char arqCodificado[30];
+        FILE *pontCodificado = fopen(arqCodificado, "w");
+
+        char letra = getc(ponteiroArquivo);
+        while(letra != EOF)
+        {
+            fprintf(arqCodificado, filaL->caracter);
+            filaL = filaL->prox;
+            letra = getc(ponteiroArquivo);
+        }
 
 
 }
