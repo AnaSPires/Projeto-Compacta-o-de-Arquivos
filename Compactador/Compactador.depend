@@ -1,36 +1,5 @@
 # depslib dependency file v1.0
-1572011965 source:c:\users\u18173\desktop\compactador\fila.c
-	<stdio.h>
-	"Fila.h"
-	"NoArvore.h"
-
-1572002761 c:\users\u18173\desktop\compactador\fila.h
-	"NoArvore.h"
-
-1572002738 c:\users\u18173\desktop\compactador\noarvore.h
-
-1572009171 source:c:\users\u18173\desktop\compactador\main.c
-	<stdio.h>
-	"NoArvore.h"
-	"Fila.h"
-
-1572002717 source:c:\users\u18173\desktop\compactador\noarvore.c
-	"Fila.h"
-	<stdlib.h>
-
-1572266931 D
-
-1572863845 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\fila.c
-	<stdio.h>
-	"Fila.h"
-	"NoArvore.h"
-
-1572786076 source:c:\users\ariane\documents\github\projeto-compactador-de-arquivos\compactador\fila.c
-	<stdio.h>
-	"Fila.h"
-	"NoArvore.h"
-
-1572266710 e9a6524b0d05d9d230c7cc7664b79cef2a022
+1572969609 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\fila.c
 	<stdio.h>
 	"Fila.h"
 	"NoArvore.h"
@@ -40,90 +9,22 @@
 
 1572863846 c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\noarvore.h
 
+1572954532 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\letra.c
+	<stdio.h>
+	"Letra.h"
+
+1572954469 c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\letra.h
+	"NoArvore.h"
+
 1572863846 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\noarvore.c
 	"Fila.h"
 	"Letra.h"
 	<stdlib.h>
 
-1572884864 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\main.c
+1572971629 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\main.c
 	<stdio.h>
 	"NoArvore.h"
 	"Fila.h"
 	"Letra.h"
-
-1572020402 h"
-
-1572786076 c:\users\ariane\documents\github\projeto-compactador-de-arquivos\compactador\fila.h
-	"NoArvore.h"
-
-1572786076 c:\users\ariane\documents\github\projeto-compactador-de-arquivos\compactador\noarvore.h
-
-1572786076 source:c:\users\ariane\documents\github\projeto-compactador-de-arquivos\compactador\noarvore.c
-	"Fila.h"
-	"Letra.h"
-	<stdlib.h>
-
-1572786076 source:c:\users\ariane\documents\github\projeto-compactador-de-arquivos\compactador\letra.c
-	<stdio.h>
-	"Letra.h"
-
-1572786076 c:\users\ariane\documents\github\projeto-compactador-de-arquivos\compactador\letra.h
-	"NoArvore.h"
-
-1572863846 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\letra.c
-	<stdio.h>
-	"Letra.h"
-
-1572863846 c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\letra.h
-	"NoArvore.h"
-
-1572647472 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\compactador\fila.c
-	<stdio.h>
-	"Fila.h"
-	"NoArvore.h"
-
-1572649620 c:\users\u18201\documents\github\projeto-compactador-de-arquivos\compactador\fila.h
-	"NoArvore.h"
-
-1572649875 c:\users\u18201\documents\github\projeto-compactador-de-arquivos\compactador\noarvore.h
-
-1572648985 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\compactador\letra.c
-	<stdio.h>
-	"Letra.h"
-
-1572649918 c:\users\u18201\documents\github\projeto-compactador-de-arquivos\compactador\letra.h
-	"NoArvore.h"
-
-1572649957 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\compactador\noarvore.c
-	"Fila.h"
-	"Letra.h"
-	<stdlib.h>
-
-1572649793 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\compactador\main.c
-	<stdio.h>
-	"NoArvore.h"
-	"Fila.h"
-	"Letra.h"
-
-1572702135 source:c:\users\dell\documents\github\projeto-compacta-o-de-arquivos\compactador\fila.c
-	<stdio.h>
-	"Fila.h"
-	"NoArvore.h"
-
-1572702135 c:\users\dell\documents\github\projeto-compacta-o-de-arquivos\compactador\fila.h
-	"NoArvore.h"
-
-1572702135 c:\users\dell\documents\github\projeto-compacta-o-de-arquivos\compactador\noarvore.h
-
-1572702135 source:c:\users\dell\documents\github\projeto-compacta-o-de-arquivos\compactador\letra.c
-	<stdio.h>
-	"Letra.h"
-
-1572702135 c:\users\dell\documents\github\projeto-compacta-o-de-arquivos\compactador\letra.h
-	"NoArvore.h"
-
-1572702135 source:c:\users\dell\documents\github\projeto-compacta-o-de-arquivos\compactador\noarvore.c
-	"Fila.h"
-	"Letra.h"
-	<stdlib.h>
+	<locale.h>
 

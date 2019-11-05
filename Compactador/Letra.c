@@ -22,3 +22,15 @@ NoLetra* add(NoLetra* inicio, NoLetra* no)
   return inicio;
 }
 
+NoLetra* acharLetra(char l, NoLetra* inicio)
+{
+    while(inicio != NULL)
+    {
+        if(inicio->caracter == l)
+            return inicio;
+        else
+            inicio = inicio->prox;
+    }
+    return NULL;
+}
+
