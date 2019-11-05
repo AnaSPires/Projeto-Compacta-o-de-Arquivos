@@ -25,7 +25,7 @@
 	"Fila.h"
 	"NoArvore.h"
 
-1572786076 source:c:\users\ariane\documents\github\projeto-compactador-de-arquivos\compactador\fila.c
+1572915851 source:c:\users\ariane\documents\github\projeto-compactador-de-arquivos\compactador\fila.c
 	<stdio.h>
 	"Fila.h"
 	"NoArvore.h"
@@ -63,11 +63,11 @@
 	"Letra.h"
 	<stdlib.h>
 
-1572786076 source:c:\users\ariane\documents\github\projeto-compactador-de-arquivos\compactador\letra.c
+1572915532 source:c:\users\ariane\documents\github\projeto-compactador-de-arquivos\compactador\letra.c
 	<stdio.h>
 	"Letra.h"
 
-1572786076 c:\users\ariane\documents\github\projeto-compactador-de-arquivos\compactador\letra.h
+1572914553 c:\users\ariane\documents\github\projeto-compactador-de-arquivos\compactador\letra.h
 	"NoArvore.h"
 
 1572863846 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\letra.c
@@ -128,6 +128,12 @@
 	<stdlib.h>
 
 1572908685 source:c:\users\dell\documents\github\projeto-compacta-o-de-arquivos\compactador\main.c
+	<stdio.h>
+	"NoArvore.h"
+	"Fila.h"
+	"Letra.h"
+
+1572919009 source:c:\users\ariane\documents\github\projeto-compactador-de-arquivos\compactador\main.c
 	<stdio.h>
 	"NoArvore.h"
 	"Fila.h"
