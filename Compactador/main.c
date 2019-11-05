@@ -16,7 +16,7 @@ int main()
   scanf("%s", arq);
 
   ponteiroArquivo = fopen(arq, "r");
-  //printf("%s",arq);
+  printf("%s",arq);
 
   if(ponteiroArquivo == NULL)
      printf("Erro na abertura do arquivo!");
@@ -128,20 +128,35 @@ int main()
         //FILE *arqCompactado = fopen(arq, "r");
 
 
-        char * found = strstr( arq, "in" );
-        char* arqCompactado;
+        char * found = strstr( arq, "." );
+
         if (found != NULL)
         {
           int index = found - arq;
+          printf("tagagag");
+          printf("%i",index);
+
+          char* arqCompactado =(char*) malloc(2*(sizeof(char)));
+
           for(int i = 0;i<index;i++)
           {
+            printf("\n\n");
+            printf("%c",*arq);
             *arqCompactado = *arq;
+            printf("\n\n");
+            printf("%c",*arqCompactado);
             arq++;
             arqCompactado++;
+            printf("\n\n agr");
+            printf("%s",arqCompactado);
+            printf("\n\n");
           }
+          arqCompactado++;
+          *arqCompactado = 'c';
+        printf("yyyy");
 
+        FILE *pontCompactado = fopen( arqCompactado,"w");
 
-        FILE *pontCompactado = freopen(arq, "w", arqCompactado);
 
         fprintf(pontCompactado,"%s", "aaaaaaaaaaaaaa"); //filaL->caracter
         /*

@@ -127,3 +127,9 @@
 	"Letra.h"
 	<stdlib.h>
 
+1572908685 source:c:\users\dell\documents\github\projeto-compacta-o-de-arquivos\compactador\main.c
+	<stdio.h>
+	"NoArvore.h"
+	"Fila.h"
+	"Letra.h"
+
