@@ -12,7 +12,6 @@ typedef struct NoLetra
 
 extern NoLetra* createL();
 extern NoLetra* add(NoLetra* inicio, NoLetra* no);
-extern NoLetra* acharLetra(char l, NoLetra* lista);
 
 #endif
 

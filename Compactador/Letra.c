@@ -22,16 +22,3 @@ NoLetra* add(NoLetra* inicio, NoLetra* no)
   return inicio;
 }
 
-NoLetra* acharLetra(char l, NoLetra* fila)
-{
-    while(fila != NULL)
-    {
-        if(fila->caracter == l)
-            return fila;
-        else
-            fila = fila->prox;
-    }
-    return NULL;
-}
-
-
