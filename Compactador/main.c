@@ -65,8 +65,8 @@ void descompactar(FILE* ponteiroArquivo, char arq[])
     //printf("%i",lixo);
     int qtdLetras = getc(ponteiroArquivo);
     //printf("%i", qtdLetras);
-
-    for(int i = 0; i< qtdLetras;i++)
+    int i = 0;
+    for(i = 0; i< qtdLetras;i++)
     {
         char car = getc(ponteiroArquivo);
         //printf("%c", car);
@@ -118,9 +118,22 @@ void descompactar(FILE* ponteiroArquivo, char arq[])
         qtd--;
     }
 
+    char novoArq[30];
+
+    int x = 0;
+    for(x = 0;x < strlen(arq) -2;x++)
+    {
+        novoArq[x] = arq[x];
+    }
+
+    novoArq[x++] = "d";
+
+    FILE* pontDescompactar = fopen(novoArq, "w");
+
+    fprintf("%c", "aaaaaaaaaaaaaaaaaaaaaaaa");
 
 
-
+    fclose(pontDescompactar);
 
 /*
     int qtd = 0;
@@ -202,13 +215,11 @@ void compactar(FILE* ponteiroArquivo, char arq[])
         filaL = createCod(filaL, f->info, auxCod, auxTam, a);
 
         int found = strlen(arq);
-        //printf("%i",found);
         char arqCodificado[30];
-        //arqCodificado = arq;
-
-       for(int i = 0;i<(found+1);i++)
+        int x = 0;
+       for(x = 0;x<(found+1);x++)
        {
-            arqCodificado[i] = arq[i];
+            arqCodificado[x] = arq[x];
         }
 
         arqCodificado[found++] = '.';arqCodificado[found++] = 'c'; arqCodificado[found++] = 'm'; arqCodificado[found] = 'p';
@@ -236,12 +247,13 @@ void compactar(FILE* ponteiroArquivo, char arq[])
         char letra = getc(ponteiroArquivo);
         NoLetra* encontrada = acharLetra(letra, copiaRuim);
 
-        char aux=0; //para o arquivo
+        char aux=0;
         while(letra != EOF && encontrada != NULL)
         {
             char codigo = 0;
             int outroInt = encontrada->tam - 1;
-            for(int indice = 0;indice < encontrada->tam; indice++)
+            int indice = 0;
+            for(indice = 0;indice < encontrada->tam; indice++)
                 if(encontrada->codigo[indice] == '1')
                     codigo += pow(2, outroInt--);
 
@@ -279,10 +291,6 @@ void compactar(FILE* ponteiroArquivo, char arq[])
              int aaaa = 8 - qtdQuantos;
              fwrite(&aaaa, sizeof(int), 1, pontCodificado);
         }
-
-        //printf("%i", 8 - qtdQuantos);
-        //printf("%i", aux);
-
         fclose(pontCodificado);
         fclose(ponteiroArquivo);
         printf("\n\n");

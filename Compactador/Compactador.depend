@@ -1,27 +1,27 @@
 # depslib dependency file v1.0
-1572969609 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\fila.c
+1573060002 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\fila.c
 	<stdio.h>
 	"Fila.h"
 	"NoArvore.h"
 
-1572863845 c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\fila.h
+1573060002 c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\fila.h
 	"NoArvore.h"
 
-1572863846 c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\noarvore.h
+1573060002 c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\noarvore.h
 
-1572954532 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\letra.c
+1573060002 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\letra.c
 	<stdio.h>
 	"Letra.h"
 
-1572954469 c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\letra.h
+1573060002 c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\letra.h
 	"NoArvore.h"
 
-1573051500 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\noarvore.c
+1573060002 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\noarvore.c
 	"Fila.h"
 	"Letra.h"
 	<stdlib.h>
 
-1573054787 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\main.c
+1573061448 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\main.c
 	<stdio.h>
 	"NoArvore.h"
 	"Fila.h"
