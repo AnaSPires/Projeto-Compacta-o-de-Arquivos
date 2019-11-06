@@ -1,0 +1,40 @@
+10 - p
+00000010
+
+int aux = 0;
+//00000000 00000000 00000000 00001000
+----
+
+
+int codigo = 0;
+int outroInt = vetTamanho - 1;
+for(int indice = 0;indice<tamanho;indice++)
+if(cod[indice] == '1')
+	codigo += pow(2, outroInt--);
+
+
+
+aux = aux << codigo tamanho;
+aux = codigo << 8 - tamanho;
+00000000 00000000 00000000 00000010
+00000000 00000000 00000000 00001011
+
+2^1
+
+
+codigo = 2;
+int qtdQuantos = 0;
+qtdQuantos += tamanho do código
+aux = 0;
+
+
+
+aux = aux << codigo tamanho;
+aux = codigo << 8 - tamanho;
+
+
+//aux = 000010 00;
+
+
+
+

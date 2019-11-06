@@ -16,12 +16,12 @@
 1572954469 c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\letra.h
 	"NoArvore.h"
 
-1572863846 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\noarvore.c
+1573051500 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\noarvore.c
 	"Fila.h"
 	"Letra.h"
 	<stdlib.h>
 
-1572971629 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\main.c
+1573054787 source:c:\users\u18173\documents\github\projeto-compactador-de-arquivos\compactador\main.c
 	<stdio.h>
 	"NoArvore.h"
 	"Fila.h"

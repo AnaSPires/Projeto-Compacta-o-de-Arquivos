@@ -61,9 +61,9 @@ void descompactar(FILE* ponteiroArquivo, char arq[])
 {
     NoFila* f = NULL;
     rewind(ponteiroArquivo);
-    int lixo = getc(ponteiroArquivo) - '0';
+    int lixo = getc(ponteiroArquivo);
     //printf("%i",lixo);
-    int qtdLetras = getc(ponteiroArquivo) - '0';
+    int qtdLetras = getc(ponteiroArquivo);
     //printf("%i", qtdLetras);
 
     for(int i = 0; i< qtdLetras;i++)
@@ -79,25 +79,31 @@ void descompactar(FILE* ponteiroArquivo, char arq[])
 
     NoFila* teste = f;
     int qtd = 0;
-  while(teste->prox !=NULL)
-  {
+      while(teste->prox !=NULL)
+      {
+          char car = teste->info->caracter;
+          int fre = teste->info->frequencia;
+          teste = teste->prox;
+          qtd++;
+          //printf("%c", car);
+          //printf("%i", fre);
+      }
       char car = teste->info->caracter;
       int fre = teste->info->frequencia;
-      teste = teste->prox;
       qtd++;
-      //printf("%c", car);
-      //printf("%i", fre);
-  }
-      char car = teste->info->caracter;
-      int fre = teste->info->frequencia;
-      qtd++;
-      //printf("%c", car);
-      //printf("%i", fre);
 
     while(qtd > 1 && f != NULL)
     {
         NoArvore* primeiro = pop(&f);
+        printf("\n\n");
+        printf("%c", primeiro->caracter);
+        printf("%i", primeiro->frequencia);
+        printf("\n\n");
         NoArvore *segundo = pop(&f);
+        printf("\n\n");
+        printf("%c", segundo->caracter);
+        printf("%i", segundo->frequencia);
+        printf("\n\n");
 
         int frequencia = (primeiro->frequencia) + (segundo->frequencia);
         NoArvore * novo = (NoFila*)malloc(sizeof(NoFila));
@@ -111,6 +117,8 @@ void descompactar(FILE* ponteiroArquivo, char arq[])
 
         qtd--;
     }
+
+
 
 
 
@@ -194,76 +202,86 @@ void compactar(FILE* ponteiroArquivo, char arq[])
         filaL = createCod(filaL, f->info, auxCod, auxTam, a);
 
         int found = strlen(arq);
-        printf("%i",found);
+        //printf("%i",found);
         char arqCodificado[30];
         //arqCodificado = arq;
 
-       for(int i = 0;i<=(found+1);i++)
+       for(int i = 0;i<(found+1);i++)
        {
             arqCodificado[i] = arq[i];
         }
 
         arqCodificado[found++] = '.';arqCodificado[found++] = 'c'; arqCodificado[found++] = 'm'; arqCodificado[found] = 'p';
-        /*
-
-        if(found!= NULL)
-        {
-            int index = found - arq;
-            int fim;
-
-            arqCodificado[fim++] = 'c'; arqCodificado[fim++] = 'm'; arqCodificado[fim] = 'p';
-
-        }*/
-
 
         FILE *pontCodificado = fopen(arqCodificado, "wb");
-        fprintf(pontCodificado, "%i", 1);
+        found = 0;
+        fwrite(&found, sizeof(int), 1, pontCodificado);
+        fwrite(&copia, sizeof(int), 1, pontCodificado);
 
         rewind(ponteiroArquivo);
 
-        char letra = getc(ponteiroArquivo);
         NoFila* copiaRuim = filaL;
-        int quantos = 0;
-        //printf("%i",copia);
-        fprintf(pontCodificado, "%i", copia);
 
         while(filaL != NULL)
         {
-            fprintf(pontCodificado, "%c", filaL->caracter);
-            fprintf(pontCodificado, "%i", filaL->frequencia);
+            fwrite(&filaL->caracter, sizeof(char), 1, pontCodificado);
+            fwrite(&filaL->frequencia, sizeof(int), 1, pontCodificado);
             filaL = filaL->prox;
         }
-
-        int qtdQuantos = 0;
-
         filaL = copiaRuim;
+
+
+       int qtdQuantos = 0;
+
+        char letra = getc(ponteiroArquivo);
         NoLetra* encontrada = acharLetra(letra, copiaRuim);
 
-
+        char aux=0; //para o arquivo
         while(letra != EOF && encontrada != NULL)
         {
-            int aux=0;
-            aux = aux | (1u << (encontrada->tam - 1));//1=pos
+            char codigo = 0;
+            int outroInt = encontrada->tam - 1;
+            for(int indice = 0;indice < encontrada->tam; indice++)
+                if(encontrada->codigo[indice] == '1')
+                    codigo += pow(2, outroInt--);
 
-            int i;
-            for(i = 0; i<encontrada->tam;i++)
+            if(qtdQuantos + encontrada->tam > 8)
             {
-               fprintf(pontCodificado, "%c", encontrada->codigo[i]);
-               qtdQuantos++;
+                char a = codigo >> (encontrada->tam - (8 - qtdQuantos));
+                char b = codigo << (8 - qtdQuantos);
+                aux = aux<<(8 - qtdQuantos);
+                aux = aux | a;
+
+                fwrite(&aux, sizeof(char), 1, pontCodificado);
+                aux = b;
+                qtdQuantos = encontrada->tam - (8 - qtdQuantos);
+            }
+            else
+            {
+                aux = aux << encontrada->tam;
+                aux = aux | codigo;
+                qtdQuantos += encontrada->tam;
+
                 if(qtdQuantos == 8)
                 {
                     qtdQuantos = 0;
+                    fwrite(&aux, sizeof(char), 1, pontCodificado);
+                    aux = 0;
                 }
             }
-
             letra = getc(ponteiroArquivo);
             encontrada = acharLetra(letra, filaL);
         }
-        rewind(pontCodificado);
-        if(qtdQuantos == 0)
-            fprintf(pontCodificado, "%i", 0);
-        else
-            fprintf(pontCodificado, "%i", 8 - qtdQuantos);
+        if(qtdQuantos != 0)
+        {
+             fwrite(&aux, sizeof(char), 1,pontCodificado);
+             rewind(pontCodificado);
+             int aaaa = 8 - qtdQuantos;
+             fwrite(&aaaa, sizeof(int), 1, pontCodificado);
+        }
+
+        //printf("%i", 8 - qtdQuantos);
+        //printf("%i", aux);
 
         fclose(pontCodificado);
         fclose(ponteiroArquivo);
