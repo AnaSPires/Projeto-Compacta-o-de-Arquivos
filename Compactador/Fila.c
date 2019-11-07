@@ -97,16 +97,10 @@ NoFila* buscar(char caracter, NoFila* inicio)
 
 NoFila* buscarLetra(char caracter, int fre, NoFila* inicio)
 {
-    NoFila* atual = existe(caracter, inicio);
+     NoArvore* novo = create();
+     novo->caracter = caracter;
+     novo->frequencia = fre;
 
-    if(atual == NULL)
-     {
-         NoArvore* novo = create();
-         novo->caracter = caracter;
-         novo->frequencia = fre;
+     return insira(inicio,novo);
 
-         return insira(inicio,novo);
-     }
-
-     return ordenar(inicio);
 }

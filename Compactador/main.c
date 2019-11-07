@@ -61,17 +61,20 @@ void descompactar(FILE* ponteiroArquivo, char arq[])
 {
     NoFila* f = NULL;
     rewind(ponteiroArquivo);
-    int lixo = getc(ponteiroArquivo);
-    //printf("%i",lixo);
-    int qtdLetras = getc(ponteiroArquivo);
+    int lixo;
+    fread(&lixo,sizeof(int),1,ponteiroArquivo);
+    int qtdLetras;
+    fread(&qtdLetras,sizeof(int),1,ponteiroArquivo);
     //printf("%i", qtdLetras);
     int i = 0;
     for(i = 0; i< qtdLetras;i++)
     {
-        char car = getc(ponteiroArquivo);
-        //printf("%c", car);
-        int fre = getc(ponteiroArquivo) -'0';
-        //printf("%i", fre);
+        char car;
+        fread(&car,sizeof(char),1,ponteiroArquivo);
+        printf("%c", car);
+        int fre;
+        fread(&fre,sizeof(int),1,ponteiroArquivo);
+        printf("%i", fre);
 
         NoFila* atual = buscarLetra(car, fre, f);
         f=atual;
@@ -120,31 +123,59 @@ void descompactar(FILE* ponteiroArquivo, char arq[])
 
     char novoArq[30];
 
-    int x = 0;
-    for(x = 0;x < strlen(arq) -2;x++)
+    for(int i = 0; i<strlen(arq);i++)
+        novoArq[i] = arq[i];
+
+
+    strtok(novoArq, ".cmp");
+
+    FILE* pontDescompactar = fopen(novoArq, "wb");
+
+    char a = 'a';
+    fwrite(&a, sizeof(char), 1, pontDescompactar);
+
+    char codigo;
+    fread(&codigo, sizeof(char), 1, ponteiroArquivo);
+    //char c = buscaCaracter(codigo);
+    No atual = raiz;
+    int max = 8;
+    long posAtual = ftell(arq);
+
+    fseek(arq, -1, SEEK_END);
+    long posFinal = ftell(arq);
+
+    fseek(arq, posAtual, SEEK_SET);
+
+    while(codigo != EOF)
     {
-        novoArq[x] = arq[x];
+        if(ftell(arq) == posFinal)
+            max = max - qtdlixo;
+
+        for(int i = 0; i < max; i++)
+        {
+            if(codigo & (1u << 7 - i))
+            {
+                atual = atual->dir;
+                // é 1
+            }
+            else
+            {
+                atual = atual->esq;
+                //é 0
+            }
+
+            if(é folha)
+            {
+                escreve o chara
+                atual= raiz;
+            }
+        }
+
+        fread(&codigo, sizeof(char), 1, ponteiroArquivo);
     }
-
-    novoArq[x++] = "d";
-
-    FILE* pontDescompactar = fopen(novoArq, "w");
-
-    fprintf("%c", "aaaaaaaaaaaaaaaaaaaaaaaa");
 
 
     fclose(pontDescompactar);
-
-/*
-    int qtd = 0;
-    char c = getc(ponteiroArquivo);
-    while(c != EOF)
-    {
-        NoFila* atual = buscar(c, f);
-        f=atual;
-        c = getc(ponteiroArquivo);
-    }*/
-
     printf("\n\n");
     printf("Descompactação realizada com sucesso.", setlocale(LC_ALL,""));
     printf("\n\n");
@@ -206,8 +237,8 @@ void compactar(FILE* ponteiroArquivo, char arq[])
         NoLetra* filaL =NULL;
 
         char *auxCod = (char*)malloc(a * sizeof(char));
-        int i;
-        for(i = 0; i < a; i++)
+
+        for(int i = 0; i < a; i++)
             auxCod[i] = NULL;
 
         int auxTam = 0;
@@ -215,13 +246,13 @@ void compactar(FILE* ponteiroArquivo, char arq[])
         filaL = createCod(filaL, f->info, auxCod, auxTam, a);
 
         int found = strlen(arq);
-        char arqCodificado[30];
+        int tam = found ;
+        char arqCodificado[found+4];
         int x = 0;
-       for(x = 0;x<(found+1);x++)
-       {
+        for(x = 0;x<(found);x++)
+        {
             arqCodificado[x] = arq[x];
         }
-
         arqCodificado[found++] = '.';arqCodificado[found++] = 'c'; arqCodificado[found++] = 'm'; arqCodificado[found] = 'p';
 
         FILE *pontCodificado = fopen(arqCodificado, "wb");

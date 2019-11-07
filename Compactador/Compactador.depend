@@ -28,3 +28,32 @@
 	"Letra.h"
 	<locale.h>
 
+1573139479 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\compactador\fila.c
+	<stdio.h>
+	"Fila.h"
+	"NoArvore.h"
+
+1572875464 c:\users\u18201\documents\github\projeto-compactador-de-arquivos\compactador\fila.h
+	"NoArvore.h"
+
+1572875464 c:\users\u18201\documents\github\projeto-compactador-de-arquivos\compactador\noarvore.h
+
+1573135433 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\compactador\letra.c
+	<stdio.h>
+	"Letra.h"
+
+1573135433 c:\users\u18201\documents\github\projeto-compactador-de-arquivos\compactador\letra.h
+	"NoArvore.h"
+
+1573141045 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\compactador\main.c
+	<stdio.h>
+	"NoArvore.h"
+	"Fila.h"
+	"Letra.h"
+	<locale.h>
+
+1572875464 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\compactador\noarvore.c
+	"Fila.h"
+	"Letra.h"
+	<stdlib.h>
+
