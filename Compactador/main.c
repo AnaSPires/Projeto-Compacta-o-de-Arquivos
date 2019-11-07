@@ -131,25 +131,24 @@ void descompactar(FILE* ponteiroArquivo, char arq[])
 
     FILE* pontDescompactar = fopen(novoArq, "wb");
 
-    char a = 'a';
-    fwrite(&a, sizeof(char), 1, pontDescompactar);
 
     char codigo;
     fread(&codigo, sizeof(char), 1, ponteiroArquivo);
     //char c = buscaCaracter(codigo);
-    No atual = raiz;
+    NoArvore *atual = f->info;
     int max = 8;
-    long posAtual = ftell(arq);
+    long posAtual;
+    posAtual= ftell(ponteiroArquivo);
 
-    fseek(arq, -1, SEEK_END);
-    long posFinal = ftell(arq);
+    fseek(ponteiroArquivo, 0, SEEK_END);
+    long posFinal = ftell(ponteiroArquivo);
 
-    fseek(arq, posAtual, SEEK_SET);
+    fseek(ponteiroArquivo, posAtual, SEEK_SET);
 
     while(codigo != EOF)
     {
         if(ftell(arq) == posFinal)
-            max = max - qtdlixo;
+            max = max - lixo;
 
         for(int i = 0; i < max; i++)
         {
@@ -164,10 +163,10 @@ void descompactar(FILE* ponteiroArquivo, char arq[])
                 //é 0
             }
 
-            if(é folha)
+            if(atual->dir == NULL && atual->esq == NULL)
             {
-                escreve o chara
-                atual= raiz;
+                 fwrite(&(atual->caracter), sizeof(char), 1, pontDescompactar);//escreve o caracter
+                 atual= f;
             }
         }
 
