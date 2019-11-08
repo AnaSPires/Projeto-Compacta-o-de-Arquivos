@@ -66,15 +66,14 @@ void descompactar(FILE* ponteiroArquivo, char arq[])
     int qtdLetras;
     fread(&qtdLetras,sizeof(int),1,ponteiroArquivo);
     //printf("%i", qtdLetras);
-    int i = 0;
-    for(i = 0; i< qtdLetras;i++)
+    for(int i = 0; i< qtdLetras;i++)
     {
         char car;
         fread(&car,sizeof(char),1,ponteiroArquivo);
-        printf("%c", car);
+        //printf("%c", car);
         int fre;
         fread(&fre,sizeof(int),1,ponteiroArquivo);
-        printf("%i", fre);
+        //printf("%i", fre);
 
         NoFila* atual = buscarLetra(car, fre, f);
         f=atual;
@@ -98,15 +97,15 @@ void descompactar(FILE* ponteiroArquivo, char arq[])
     while(qtd > 1 && f != NULL)
     {
         NoArvore* primeiro = pop(&f);
-        printf("\n\n");
-        printf("%c", primeiro->caracter);
-        printf("%i", primeiro->frequencia);
-        printf("\n\n");
+        //printf("\n\n");
+        //printf("%c", primeiro->caracter);
+        //printf("%i", primeiro->frequencia);
+        //printf("\n\n");
         NoArvore *segundo = pop(&f);
-        printf("\n\n");
-        printf("%c", segundo->caracter);
-        printf("%i", segundo->frequencia);
-        printf("\n\n");
+        //printf("\n\n");
+        //printf("%c", segundo->caracter);
+        //printf("%i", segundo->frequencia);
+        //printf("\n\n");
 
         int frequencia = (primeiro->frequencia) + (segundo->frequencia);
         NoArvore * novo = (NoFila*)malloc(sizeof(NoFila));
@@ -147,34 +146,50 @@ void descompactar(FILE* ponteiroArquivo, char arq[])
 
     while(codigo != EOF)
     {
-        if(ftell(arq) == posFinal)
+        printf("%s","entrou no whilw \n");
+        if(posAtual == posFinal)
             max = max - lixo;
 
         for(int i = 0; i < max; i++)
         {
-            if(codigo & (1u << 7 - i))
+            printf("%s","entrou no for \n");
+            //BUGOU AQ
+
+            printf("%s","aaaaaaaaaaaaaaaa\n");
+            if(codigo & (1u << (7 - i)))
             {
+                printf("%s","foi pra direita \n");
+                if(atual->dir == NULL)
+                printf("%s","QUE MERDA \n");
                 atual = atual->dir;
+                printf("%s","nhe\n");
                 // é 1
             }
             else
             {
+                printf("%s","foi pra esquerda \n");
                 atual = atual->esq;
                 //é 0
             }
-
-            if(atual->dir == NULL && atual->esq == NULL)
+            printf("%s","cansei\n");
+             if((atual->dir == NULL) && (atual->esq == NULL))
             {
+                printf("%s","chegou na folha \n");
                  fwrite(&(atual->caracter), sizeof(char), 1, pontDescompactar);//escreve o caracter
                  atual= f;
             }
+
+
+            printf("%s","chegou no final do for \n");
         }
 
         fread(&codigo, sizeof(char), 1, ponteiroArquivo);
+        printf("%s","leu outro caracter \n");
     }
-
+    printf("%s","saiu do while \n");
 
     fclose(pontDescompactar);
+    fclose(ponteiroArquivo);
     printf("\n\n");
     printf("Descompactação realizada com sucesso.", setlocale(LC_ALL,""));
     printf("\n\n");
@@ -265,8 +280,16 @@ void compactar(FILE* ponteiroArquivo, char arq[])
 
         while(filaL != NULL)
         {
+            unsigned char parte1 = (fre & 255);
+            unsigned char parte2 = ((fre>>8) & 255);
+            unsigned char parte3 = ((fre>>16) & 255);
+            unsigned char parte4 = ((fre>>24) & 255);
+
             fwrite(&filaL->caracter, sizeof(char), 1, pontCodificado);
-            fwrite(&filaL->frequencia, sizeof(int), 1, pontCodificado);
+            fwrite(&parte1, sizeof(char), 1, pontCodificado);
+            fwrite(&parte2, sizeof(char), 1, pontCodificado);
+            fwrite(&parte3, sizeof(char), 1, pontCodificado);
+            fwrite(&parte4, sizeof(char), 1, pontCodificado);
             filaL = filaL->prox;
         }
         filaL = copiaRuim;

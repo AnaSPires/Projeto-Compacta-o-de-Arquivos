@@ -57,3 +57,32 @@
 	"Letra.h"
 	<stdlib.h>
 
+1573166714 source:c:\users\dell\documents\github\projeto-compacta-o-de-arquivos\compactador\fila.c
+	<stdio.h>
+	"Fila.h"
+	"NoArvore.h"
+
+1572702135 c:\users\dell\documents\github\projeto-compacta-o-de-arquivos\compactador\fila.h
+	"NoArvore.h"
+
+1572702135 c:\users\dell\documents\github\projeto-compacta-o-de-arquivos\compactador\noarvore.h
+
+1573166714 source:c:\users\dell\documents\github\projeto-compacta-o-de-arquivos\compactador\letra.c
+	<stdio.h>
+	"Letra.h"
+
+1573166714 c:\users\dell\documents\github\projeto-compacta-o-de-arquivos\compactador\letra.h
+	"NoArvore.h"
+
+1573177644 source:c:\users\dell\documents\github\projeto-compacta-o-de-arquivos\compactador\main.c
+	<stdio.h>
+	"NoArvore.h"
+	"Fila.h"
+	"Letra.h"
+	<locale.h>
+
+1572702135 source:c:\users\dell\documents\github\projeto-compacta-o-de-arquivos\compactador\noarvore.c
+	"Fila.h"
+	"Letra.h"
+	<stdlib.h>
+
