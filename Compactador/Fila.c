@@ -12,7 +12,7 @@ NoFila * insira(NoFila* inicio, NoArvore* no)
         return novo;
     }
 
-    if(no->frequencia <= (inicio-> info->frequencia))
+    if(no->frequencia < (inicio-> info->frequencia))
     {
         NoFila* novo = create();
         novo -> info = no;
@@ -88,7 +88,6 @@ NoFila* buscar(char caracter, NoFila* inicio)
          NoArvore* novo = create();
          novo->caracter = caracter;
          novo->frequencia = 1;
-
          return insira(inicio,novo);
      }
 

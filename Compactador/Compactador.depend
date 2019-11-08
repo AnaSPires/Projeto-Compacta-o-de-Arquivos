@@ -28,7 +28,7 @@
 	"Letra.h"
 	<locale.h>
 
-1573139479 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\compactador\fila.c
+1573229222 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\compactador\fila.c
 	<stdio.h>
 	"Fila.h"
 	"NoArvore.h"
@@ -45,7 +45,7 @@
 1573135433 c:\users\u18201\documents\github\projeto-compactador-de-arquivos\compactador\letra.h
 	"NoArvore.h"
 
-1573163424 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\compactador\main.c
+1573233346 source:c:\users\u18201\documents\github\projeto-compactador-de-arquivos\compactador\main.c
 	<stdio.h>
 	"NoArvore.h"
 	"Fila.h"
