@@ -11,7 +11,7 @@ int main()
 {
    FILE *ponteiroArquivo;
    NoFila* f = NULL;
-  char arq[30];
+  char arq[300];
   int escolha;
 
   printf("1 - Compactar um arquivo \n\n");
@@ -57,8 +57,11 @@ void descompactar(FILE* ponteiroArquivo, char arq[])
     rewind(ponteiroArquivo);
     int lixo;
     fread(&lixo,sizeof(int),1,ponteiroArquivo);
+    printf("%i", lixo);
+    printf("mas gnt");
     int qtdLetras;
     fread(&qtdLetras,sizeof(int),1,ponteiroArquivo);
+    printf("%i", qtdLetras);
 
     for(int i = 0; i< qtdLetras;i++)
     {
@@ -99,8 +102,9 @@ void descompactar(FILE* ponteiroArquivo, char arq[])
         qtd--;
     }
 
-   // NoArvore *a = f->info;
-   // percorrer(a);
+   NoArvore *a = f->info;
+   percorrer(a);
+   printf("ALA");
 
     char novoArq[30];
     int i;
@@ -111,8 +115,8 @@ void descompactar(FILE* ponteiroArquivo, char arq[])
 
     unsigned char codigo;
 
-    printf("AQUI");
-    printf("%c", codigo);
+    //printf("AQUI");
+   // printf("%c", codigo);
     NoArvore *atual = f->info;
     int max = 8;
     long posAtual;
@@ -125,12 +129,10 @@ void descompactar(FILE* ponteiroArquivo, char arq[])
     fseek(ponteiroArquivo, posAtual, SEEK_SET);
 
     int acabou = 0;
-    //O primeiro código que ele lê é 254, e devia ser 255
-    //1111 1111 (255)\ 1110 1010 \ 1001 0101 \ 000
-    //e - 11, d - 10, c - 01, b 001, a - 000
+
     while(fread(&codigo, sizeof(char), 1, ponteiroArquivo) && !acabou)
     {
-        printf("%i", codigo);
+        printf("%c", codigo);
         posAtual= ftell(ponteiroArquivo);
         if(posAtual == posFinal)
         {
@@ -196,7 +198,7 @@ void compactar(FILE* ponteiroArquivo, char arq[])
     int qtd = 0;
     unsigned char c;
 
-    while(fread(&c,sizeof(unsigned char),1,ponteiroArquivo))
+    while(fread(&c,sizeof(char),1,ponteiroArquivo))
         f = buscar(c, f);
 
     NoFila* teste = f;
@@ -209,18 +211,30 @@ void compactar(FILE* ponteiroArquivo, char arq[])
 
     int tam = strlen(arq);
 
-    char arqCodificado[tam+5];
+    char arqCodificado[tam + 4];
     int x = 0;
-
     for(x = 0;x<(tam);x++)
         arqCodificado[x] = arq[x];
-    strcat(arqCodificado, ".cmp");
+
+    printf("taran");
+    printf("%i", x);
+    printf("taran");
+
+    //strcat(arqCodificado, ".cmp");
+
+    arqCodificado[x] = '.';
+    arqCodificado[++x] = 'c';
+    arqCodificado[++x] = 'm';
+    arqCodificado[++x] = 'p';
+    arqCodificado[x+1] = NULL;
 
     FILE *pontCodificado = fopen(arqCodificado, "wb");
 
     tam = 0;
     fwrite(&tam, sizeof(int), 1, pontCodificado);
     fwrite(&qtd, sizeof(int), 1, pontCodificado);
+    //printf("%i", tam);
+    //printf("%i", qtd);
 
     while(qtd > 1 && f != NULL)
     {
@@ -244,22 +258,28 @@ void compactar(FILE* ponteiroArquivo, char arq[])
         if(primeiro->esq == NULL && primeiro->dir == NULL){
             fwrite(&c1, sizeof(char), 1, pontCodificado);
             fwrite(&f1, sizeof(int), 1, pontCodificado);
+            //printf("%c", c1);
+            //printf("%i", f1);
+            //printf("primeiro");
         }
 
         if(segundo->esq == NULL && segundo->dir == NULL)
         {
             fwrite(&c2, sizeof(char), 1, pontCodificado);
             fwrite(&f2, sizeof(int), 1, pontCodificado);
+            //printf("%c", c2);
+            //printf("%i", f2);
+            //printf("segundo");
         }
 
         f = insira(f,novo);
 
         qtd--;
     }
-    //a25r12m10
 
     NoArvore *a = f->info;
     percorrer(a);
+    printf("ALAA");
 
     int alturaArvore = altura(f->info);
     NoLetra* filaL = NULL;
@@ -293,6 +313,9 @@ void compactar(FILE* ponteiroArquivo, char arq[])
 
     while(fread(&letra,sizeof(char),1,ponteiroArquivo))
     {
+        printf("\n");
+        printf("%c", letra);
+        printf("\n");
         encontrada = acharLetra(letra, filaL);
         unsigned char codigo = 0;
         int outroInt = encontrada->tam - 1;
@@ -303,9 +326,6 @@ void compactar(FILE* ponteiroArquivo, char arq[])
             if(encontrada->codigo[indice] == '1')
                 codigo += pow(2, outroInt);
 
-        printf("\n\n");
-        printf("%c", codigo);
-        printf("\n\n");
         if(qtdQuantos + encontrada->tam > 8)
         {
             int coisa = encontrada->tam - (8 - qtdQuantos);//0
@@ -318,6 +338,7 @@ void compactar(FILE* ponteiroArquivo, char arq[])
 
             while(coisa>8)
             {
+                printf("fechouuuuuuuuu");
                 coisa = coisa - 8;
                 restoAtual = faltaIncluir >> coisa;
                 aux = restoAtual;
@@ -334,23 +355,24 @@ void compactar(FILE* ponteiroArquivo, char arq[])
             aux = aux << encontrada->tam;
             aux = aux | codigo;
             qtdQuantos += encontrada->tam;
-
+            printf("%i", qtdQuantos);
             if(qtdQuantos == 8)
             {
+                printf("fechouuuuuuuuuuuuuu");
                 qtdQuantos = 0;
                 fwrite(&aux, sizeof(char), 1, pontCodificado);
                 aux = 0;
             }
         }
-        fread(&letra,sizeof(char),1,ponteiroArquivo);
+        //fread(&letra,sizeof(char),1,ponteiroArquivo);
     }
 
     if(qtdQuantos != 0)
     {
         int quantosLixos = 8 - qtdQuantos;
         fwrite(&aux, sizeof(char), 1,pontCodificado);
+        printf("%c", aux);
         rewind(pontCodificado);
-
         fwrite(&quantosLixos, sizeof(int), 1, pontCodificado);
     }
 
