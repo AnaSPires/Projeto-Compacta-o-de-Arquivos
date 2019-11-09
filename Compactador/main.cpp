@@ -9,16 +9,15 @@ int tamanho;
 
 int main()
 {
-    FILE *ponteiroArquivo;
-    NoFila* f = NULL;
-    char arq[300];
-    int escolha = 0;
-    while(escolha!= 3){
-    printf("1 - Compactar um arquivo \n\n");
-    printf("2 - Descompactar um arquivo \n\n");
-    printf("3 - Sair \n\n");
-    printf("Opção escolhida: ", setlocale(LC_ALL,""));
-    scanf("%i", &escolha);
+   FILE *ponteiroArquivo;
+   NoFila* f = NULL;
+  char arq[300];
+  int escolha;
+
+  printf("1 - Compactar um arquivo \n\n");
+  printf("2 - Descompactar um arquivo \n\n");
+  printf("Opção escolhida: ", setlocale(LC_ALL,""));
+  scanf("%i", &escolha);
   printf("\n");
 
   switch(escolha)
@@ -51,7 +50,6 @@ int main()
             break;
 
       }
-  }
 }
 void descompactar(FILE* ponteiroArquivo, char arq[])
 {
@@ -241,10 +239,7 @@ void compactar(FILE* ponteiroArquivo, char arq[])
     while(qtd > 1 && f != NULL)
     {
         NoArvore* primeiro = pop(&f);
-        printf("olhaaa quem vem \n");
-        printf("%c", primeiro->caracter);
         NoArvore *segundo = pop(&f);
-        printf("%c", segundo->caracter);
 
         int frequencia = (primeiro->frequencia) + (segundo->frequencia);
         NoArvore * novo = (NoFila*)malloc(sizeof(NoFila));
@@ -263,11 +258,6 @@ void compactar(FILE* ponteiroArquivo, char arq[])
         if(primeiro->esq == NULL && primeiro->dir == NULL){
             fwrite(&c1, sizeof(char), 1, pontCodificado);
             fwrite(&f1, sizeof(int), 1, pontCodificado);
-            printf("\n\nOLHA AQUI:\n");
-            printf("%u", c1);
-            printf("\n");
-            printf("%i", f1);
-            printf("\n\n");
             //printf("%c", c1);
             //printf("%i", f1);
             //printf("primeiro");
@@ -277,12 +267,8 @@ void compactar(FILE* ponteiroArquivo, char arq[])
         {
             fwrite(&c2, sizeof(char), 1, pontCodificado);
             fwrite(&f2, sizeof(int), 1, pontCodificado);
-            printf("\n\nOLHA AQUI:\n");
-            printf("%u", c2);
-            printf("\n");
-            printf("%i", f2);
-            printf("\n\n");
-
+            //printf("%c", c2);
+            //printf("%i", f2);
             //printf("segundo");
         }
 
@@ -346,10 +332,7 @@ void compactar(FILE* ponteiroArquivo, char arq[])
             unsigned char restoAtual = codigo >> coisa;  //  00000000
             aux = aux << (8 - qtdQuantos);  //01101101
             aux = aux | restoAtual;
-            printf("\n\n LÁ VAMOS NÓS\n\n");
             fwrite(&aux, sizeof(char), 1, pontCodificado);
-            printf("\n\n ");
-            printf("%u", aux);
             unsigned char faltaIncluir = codigo << (8 - coisa);
             printf("\npapapapapapapapa");
 
@@ -359,18 +342,11 @@ void compactar(FILE* ponteiroArquivo, char arq[])
                 coisa = coisa - 8;
                 restoAtual = faltaIncluir >> coisa;
                 aux = restoAtual;
-                printf("\n\n LÁ VAMOS NÓS 2\n\n");
                 fwrite(&aux, sizeof(char), 1, pontCodificado);
-                printf("\n\n ");
-                printf("%u", aux);
                 faltaIncluir = faltaIncluir << (coisa);
             }
 
             aux = faltaIncluir;
-            printf("\n\n LÁ VAMOS NÓS 2\n\n");
-            fwrite(&aux, sizeof(char), 1, pontCodificado);
-            printf("\n\n ");
-            printf("%u", aux);
             qtdQuantos = coisa;
         }
         else
@@ -384,10 +360,7 @@ void compactar(FILE* ponteiroArquivo, char arq[])
             {
                 printf("fechouuuuuuuuuuuuuu");
                 qtdQuantos = 0;
-                printf("\n\n LÁ VAMOS NÓS 3\n\n");
                 fwrite(&aux, sizeof(char), 1, pontCodificado);
-                printf("\n\n ");
-                printf("%u", aux);
                 aux = 0;
             }
         }
@@ -397,10 +370,8 @@ void compactar(FILE* ponteiroArquivo, char arq[])
     if(qtdQuantos != 0)
     {
         int quantosLixos = 8 - qtdQuantos;
-        printf("\n\n LÁ VAMOS NÓS 3\n\n");
-        fwrite(&aux, sizeof(char), 1, pontCodificado);
-        printf("\n\n ");
-        printf("%u", aux);
+        fwrite(&aux, sizeof(char), 1,pontCodificado);
+        printf("%c", aux);
         rewind(pontCodificado);
         fwrite(&quantosLixos, sizeof(int), 1, pontCodificado);
     }
@@ -411,4 +382,5 @@ void compactar(FILE* ponteiroArquivo, char arq[])
     printf("Compactação realizada com sucesso!!!",setlocale(LC_ALL,""));
     printf("\n\n");
 }
+
 
