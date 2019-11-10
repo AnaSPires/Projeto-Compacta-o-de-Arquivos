@@ -105,12 +105,12 @@
 1573002648 c:\users\ariane\documents\github\projeto-compactador-de-arquivos\compactador\letra.h
 	"NoArvore.h"
 
-1573317018 source:c:\users\ariane\documents\github\projeto-compactador-de-arquivos\compactador\noarvore.c
+1573328187 source:c:\users\ariane\documents\github\projeto-compactador-de-arquivos\compactador\noarvore.c
 	"Fila.h"
 	"Letra.h"
 	<stdlib.h>
 
-1573317286 source:c:\users\ariane\documents\github\projeto-compactador-de-arquivos\compactador\main.c
+1573347495 source:c:\users\ariane\documents\github\projeto-compactador-de-arquivos\compactador\main.c
 	<stdio.h>
 	"NoArvore.h"
 	"Fila.h"
