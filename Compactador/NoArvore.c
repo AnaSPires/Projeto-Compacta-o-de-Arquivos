@@ -27,13 +27,11 @@ NoLetra* createCod(NoLetra* lista,NoArvore* atual, char *codigo, int tam, int al
             no->caracter = atual->caracter;
             no->codigo = (char*) malloc(sizeof(NoLetra) * altura);
             int i;
-            printf("char =%c cod= ",no->caracter);
+
             for(i = 0; i < tam; i++)
             {
-                printf("%c", codigo[i]);
                 no->codigo[i] = codigo[i];
             }
-            printf("\n");
 
             no->tam = tam;
             no->frequencia = atual->frequencia;
