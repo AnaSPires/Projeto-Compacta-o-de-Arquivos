@@ -32,7 +32,7 @@ int main()
 
         ponteiroArquivo = fopen(arq, "rb");
         if(ponteiroArquivo == NULL)
-            printf("Erro na abertura do arquivo!");
+            printf("Erro na abertura do arquivo!\n");
         else
             compactar(ponteiroArquivo, arq);
             break;
@@ -43,7 +43,7 @@ int main()
             printf("\n\n");
             ponteiroArquivo = fopen(arq, "rb");
             if(ponteiroArquivo == NULL)
-             printf("Erro na abertura do arquivo!");
+             printf("Erro na abertura do arquivo!\n");
             else
                 descompactar(ponteiroArquivo,arq);
 
@@ -91,14 +91,16 @@ void descompactar(FILE* ponteiroArquivo, char arq[])
         qtd--;
     }
 
-    char novoArq[30];
+    char novoArq[(strlen(arq)-2)];
     int i;
+    novoArq[0]='_';
     for(i = 0; i<(strlen(arq)-4);i++)
-        novoArq[i] = arq[i];
+        novoArq[i+1] = arq[i];
+        novoArq[++i]='\0';
 
     //novoArq[++i] = "2";
 
-    FILE* pontDescompactar = fopen("AQUI.mp3", "wb");
+    FILE* pontDescompactar = fopen(novoArq, "wb");
 
     unsigned char codigo;
 
@@ -267,77 +269,6 @@ void compactar(FILE* ponteiroArquivo, char arq[])
 
         }
 
-
-      /* if(qtdQuantos + encontrada->tam > 8)
-        {
-            int coisa = encontrada->tam - (8 - qtdQuantos);
-            //printf("%u", codigo);
-            unsigned int restoAtual = codigo >> coisa; //0001
-            //printf("Aux de antes ainda: ");
-            //printf("%u", aux);
-            //printf("Resto atual: ");
-            //printf("%u", restoAtual);
-            aux = aux << (8 - qtdQuantos);
-            //printf("Aux de antes: ");
-            //printf("%u", aux);
-            aux = aux | restoAtual;
-            //printf("\n\n LÁ VAMOS NÓS\n\n");
-            fwrite(&aux, sizeof(char), 1, pontCodificado);
-            //printf("\n\n ");
-            //printf("Aux de depois: ");
-            //printf("%u", aux);
-            unsigned int faltaIncluir = codigo << coisa + 4 - encontrada->tam;
-            //unsigned char faltaIncluir = codigo << (8 - coisa);
-            //unsigned int faltaIncluir = codigo << 3;
-            //0010
-            //
-            //
-            printf("\npapapapapapapapa");
-
-
-            while(coisa>=8) //n sei se tá certo
-            {
-                //printf("fechouuuuuuuuu");
-                coisa = coisa - 8;
-                restoAtual = faltaIncluir >> coisa;
-                aux = restoAtual;
-                //printf("\n\n LÁ VAMOS NÓS 2\n\n");
-                fwrite(&aux, sizeof(char), 1, pontCodificado);
-                //printf("\n\n ");
-                //printf("%u", aux);
-                faltaIncluir = faltaIncluir << (coisa);
-            }
-
-            aux = faltaIncluir;
-            //printf("\n\n LÁ VAMOS NÓS 2\n\n");
-            //printf("\n\n ");
-            printf("%u", aux);
-            qtdQuantos = coisa;
-        }
-        else
-        {
-            printf("aaaaaaaaaaaaaaaaa\n");
-            aux = aux << encontrada->tam;
-            aux = aux | codigo;
-            qtdQuantos += encontrada->tam;
-            printf("%u", aux);
-
-            //1000
-            //0011
-            //
-
-            if(qtdQuantos == 8)
-            {
-                //printf("fechouuuuuuuuuuuuuu");
-                qtdQuantos = 0;
-                //printf("\n\n LÁ VAMOS NÓS 3\n\n");
-                fwrite(&aux, sizeof(char), 1, pontCodificado);
-                //printf("\n\n ");
-                //printf("%u", aux);
-                aux = 0;
-            }
-        }*/
-        //fread(&letra,sizeof(char),1,ponteiroArquivo);
     }
 
     if(qtdQuantos != 0)
